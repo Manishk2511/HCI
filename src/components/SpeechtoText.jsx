@@ -33,7 +33,7 @@ const SpeechToText = ({setQuestion}) => {
 
     return (
         <div >
-            <button onClick={toggleListening} className="bg-red-300 rounded-3xl p-2 m-2 hover:bg-red-100">
+            <button onClick={toggleListening} className="bg-green-300 rounded-3xl p-2 m-2 hover:bg-green-100">
                 {isListening ? '✋ Stop Listening' : '👂Start Listening'}
             </button>
         </div>

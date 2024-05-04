@@ -24,9 +24,10 @@ function App() {
           contents: [{ parts: [{ text: question }] }],
         },
       });
-      const filteredResponse = response["data"]["candidates"][0]["content"]["parts"][0]["text"].replace(/[^\w\s]/gi, '');
+      // const filteredResponse = response["data"]["candidates"][0]["content"]["parts"][0]["text"].replace(/[^\w\s]/gi, '');
       setAnswer(
-        filteredResponse
+        // filteredResponse
+        response["data"]["candidates"][0]["content"]["parts"][0]["text"]
       );
     } catch (error) {
       setAnswer("Sorry - Something went wrong. Please try again!");
@@ -65,7 +66,7 @@ function App() {
   const text_to_audio_hindi = (answer) => {
 
     axios
-      .get(`http://api.voicerss.org/?key=cb5c186f2a2e4e19825aff1daa84b66e&hl=hi-in&src=${answer}`, {
+      .get(`https://api.voicerss.org/?key=cb5c186f2a2e4e19825aff1daa84b66e&hl=hi-in&src=${answer}`, {
         responseType: 'blob' // Set responseType to 'blob' to receive binary data
       })
       .then((response) => {
@@ -103,7 +104,7 @@ function App() {
       {/* <div className="sidebar">
         <Sidebar />
       </div> */}
-      <div className="bg-white h-screen p-3">
+      <div className="bg-gray-800 h-screen p-3">
         <form
           onSubmit={generateAnswer}
           className="w-full md:w-2/3 m-auto text-center rounded bg-gray-50 py-2"
